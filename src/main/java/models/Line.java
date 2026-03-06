@@ -1,5 +1,7 @@
 package models;
 
+import lombok.Getter;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -8,19 +10,22 @@ import java.util.List;
 @Table(name = "line")
 public class Line {
 
+    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Getter
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "line", fetch = FetchType.LAZY)
+    @Getter
+    @OneToMany(mappedBy = "line", fetch = FetchType.EAGER)
     private List<Category> categories;
 
-
-    public Line(String name){
-        this.name = name;
+    @Override
+    public String toString() {
+        return name;
     }
 
     public Line() {
