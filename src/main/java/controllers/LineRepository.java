@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class LineController {
+public class LineRepository {
     private ArrayList<Line> lines;
 
     public ArrayList<Line> loadLines() {
 
-        Session session = BackEndController.getFactory().openSession();
+        Session session = HibernateUtil.getFactory().openSession();
 
         List<Line> result = session
                 .createQuery("FROM Line", Line.class)

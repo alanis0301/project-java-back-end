@@ -5,12 +5,12 @@ import org.hibernate.Session;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoryController {
+public class CategoryRepository {
     private ArrayList<Category> categories;
 
     public ArrayList<Category> loadCategories() {
 
-        Session session = BackEndController.getFactory().openSession();
+        Session session = HibernateUtil.getFactory().openSession();
 
         List<Category> result = session
                 .createQuery("FROM Line", Category.class)

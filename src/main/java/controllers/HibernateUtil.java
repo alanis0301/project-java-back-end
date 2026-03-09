@@ -4,7 +4,7 @@ import lombok.Getter;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class BackEndController {
+public class HibernateUtil {
 
     @Getter
     private static SessionFactory factory;
@@ -12,8 +12,4 @@ public class BackEndController {
     static {
         factory = new Configuration().configure().buildSessionFactory();
     }
-
-    //public static SessionFactory getFactory() {
-        //return factory;
-    //} = @Getter
 }
