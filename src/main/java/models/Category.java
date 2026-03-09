@@ -10,7 +10,7 @@ import java.util.List;
 @Table(name = "category")
 public class Category {
 
-    @Getter
+    @Getter //metodo get
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
