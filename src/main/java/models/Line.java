@@ -1,38 +1,34 @@
 package models;
 
-import java.util.Arrays;
+import lombok.Getter;
+
+import javax.persistence.*;
 import java.util.List;
 
-public enum Line {
 
-    CRONOS("Cronos", Arrays.asList(
-            Category.CRONOS_OLD_MODELS,
-            Category.CRONOS_L_MODELS,
-            Category.CRONOS_NG_MODELS
-    )),
-    ARES("Ares", Arrays.asList(
-            Category.ARES_TB_MODELS,
-            Category.ARES_THS_MODELS
-    ));
+@Entity
+@Table(name = "line")
+public class Line {
 
+    @Getter
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Getter
+    @Column(name = "name")
     private String name;
+
+    @Getter
+    @OneToMany(mappedBy = "line", fetch = FetchType.EAGER)
     private List<Category> categories;
-
-    Line(String name, List<Category> categories){
-        this.name = name;
-        this.categories = categories;
-    }
-
-    public String getName(){
-        return name;
-    }
-
-    public List<Category> getCategories(){
-        return categories;
-    }
 
     @Override
     public String toString() {
         return name;
+    }
+
+    public Line() {
+
     }
 }
