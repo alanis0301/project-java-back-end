@@ -1,5 +1,6 @@
-package models;
+package com.example.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -24,7 +25,8 @@ public class Category {
     @JoinColumn(name = "id_line")
     private Line line;
 
-    @OneToMany(mappedBy = "category", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Model> models;
 
     public Category() {

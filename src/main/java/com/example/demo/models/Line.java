@@ -1,5 +1,6 @@
-package models;
+package com.example.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -20,7 +21,8 @@ public class Line {
     private String name;
 
     @Getter
-    @OneToMany(mappedBy = "line", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "line", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Category> categories;
 
     @Override

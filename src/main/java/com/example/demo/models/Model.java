@@ -1,5 +1,6 @@
-package models;
+package com.example.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -22,6 +23,7 @@ public class Model {
     @Getter
     @ManyToOne
     @JoinColumn(name = "id_category")
+    @JsonIgnore
     private Category category;
 
     public Model() {
