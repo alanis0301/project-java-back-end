@@ -1,10 +1,9 @@
 package com.example.demo.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 
 import javax.persistence.*;
-import java.util.List;
 
 
 @Entity
@@ -23,7 +22,7 @@ public class Model {
     @Getter
     @ManyToOne
     @JoinColumn(name = "id_category")
-    @JsonIgnore
+    @JsonBackReference
     private Category category;
 
     public Model() {
