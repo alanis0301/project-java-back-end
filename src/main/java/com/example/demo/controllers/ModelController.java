@@ -2,7 +2,7 @@ package com.example.demo.controllers;
 
 import java.util.List;
 
-import com.example.demo.models.Model;
+import com.example.demo.dtos.ModelDTO;
 
 import com.example.demo.repositories.ModelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +19,12 @@ public class ModelController {
     private ModelRepository modelRepository;
 
     @GetMapping
-    public List<Model> list(){
+    public List<ModelDTO> list(){
         return modelRepository.findAll();
     }
 
     @GetMapping("/{id}")
-    public Model listCategoriesById(@PathVariable Integer id) {
+    public ModelDTO listModelsById(@PathVariable Integer id) {
         return modelRepository.findById(id).get();
     }
 

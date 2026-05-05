@@ -2,7 +2,7 @@ package com.example.demo.controllers;
 
 import java.util.List;
 
-import com.example.demo.models.Category;
+import com.example.demo.dtos.CategoryDTO;
 
 import com.example.demo.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +19,12 @@ public class CategoryController {
     private CategoryRepository categoryRepository;
 
     @GetMapping
-    public List<Category> list(){
+    public List<CategoryDTO> list(){
         return categoryRepository.findAll();
     }
 
     @GetMapping("/{id}")
-    public Category listCategoriesById(@PathVariable Integer id) {
+    public CategoryDTO listCategoriesById(@PathVariable Integer id) {
         return categoryRepository.findById(id).get();
     }
 

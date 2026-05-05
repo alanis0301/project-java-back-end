@@ -2,7 +2,7 @@ package com.example.demo.controllers;
 
 import java.util.List;
 
-import com.example.demo.models.Line;
+import com.example.demo.dtos.LineDTO;
 
 import com.example.demo.repositories.LineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +19,12 @@ public class LineController {
     private LineRepository lineRepository;
 
     @GetMapping
-    public List<Line> list(){
+    public List<LineDTO> list(){
         return lineRepository.findAll();
     }
 
     @GetMapping("/{id}")
-    public Line listCategoriesById(@PathVariable Integer id) {
+    public LineDTO listLinesById(@PathVariable Integer id) {
         return lineRepository.findById(id).get();
     }
 

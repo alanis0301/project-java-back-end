@@ -1,9 +1,9 @@
 package com.example.demo.repositories;
 
-import com.example.demo.models.Category;
+import com.example.demo.dtos.CategoryDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CategoryRepository extends JpaRepository<Category, Integer> {
+public interface CategoryRepository extends JpaRepository<CategoryDTO, Integer> {
 }
