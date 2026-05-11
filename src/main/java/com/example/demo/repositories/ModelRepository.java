@@ -1,10 +1,10 @@
 package com.example.demo.repositories;
 
-import com.example.demo.dtos.ModelDTO;
+import com.example.demo.models.Model;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ModelRepository extends JpaRepository<ModelDTO, Integer> {
+public interface ModelRepository extends JpaRepository<Model, Integer> {
 
 }

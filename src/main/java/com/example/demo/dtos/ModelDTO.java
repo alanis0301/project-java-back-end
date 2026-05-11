@@ -1,37 +1,35 @@
 package com.example.demo.dtos;
 
-import com.example.demo.models.Model;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.Getter;
-import org.springframework.beans.BeanUtils;
 
-import javax.persistence.*;
-
-
-@Entity
-@Table(name = "model")
 public class ModelDTO {
 
-    @Getter
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Getter
-    @Column(name = "name")
     private String name;
 
-    @Getter
-    @ManyToOne
-    @JoinColumn(name = "id_category")
-    @JsonBackReference
-    private CategoryDTO category;
-
-    public ModelDTO(Model model){
-        BeanUtils.copyProperties(model, this);
+    public ModelDTO(int id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     public ModelDTO() {
 
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
 }

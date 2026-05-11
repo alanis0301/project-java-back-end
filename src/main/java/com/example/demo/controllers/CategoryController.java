@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.example.demo.dtos.CategoryDTO;
 
-import com.example.demo.repositories.CategoryRepository;
+import com.example.demo.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,16 +16,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class CategoryController {
 
     @Autowired
-    private CategoryRepository categoryRepository;
+    private CategoryService categoryService;
 
     @GetMapping
     public List<CategoryDTO> list(){
-        return categoryRepository.findAll();
+        return categoryService.getAllCategories();
     }
 
     @GetMapping("/{id}")
-    public CategoryDTO listCategoriesById(@PathVariable Integer id) {
-        return categoryRepository.findById(id).get();
+    public CategoryDTO getById(@PathVariable int id) {
+        return categoryService.getCategoryById(id);
     }
+
 
 }

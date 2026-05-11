@@ -1,43 +1,47 @@
 package com.example.demo.dtos;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.Getter;
-import org.springframework.beans.BeanUtils;
 
-import javax.persistence.*;
 import java.util.List;
 
-import com.example.demo.models.Line;
-
-
-@Entity
-@Table(name = "line")
 public class LineDTO {
 
-    @Getter
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Getter
-    @Column(name = "name")
     private String name;
 
-    @Getter
-    @OneToMany(mappedBy = "line", fetch = FetchType.LAZY)
-    @JsonManagedReference
     private List<CategoryDTO> categories;
 
-    @Override
-    public String toString() {
-        return name;
-    }
-
-    public LineDTO(Line line){
-        BeanUtils.copyProperties(line, this);
+    public LineDTO(int id, String name, List<CategoryDTO> categories) {
+        this.id = id;
+        this.name = name;
+        this.categories = categories;
     }
 
     public LineDTO() {
 
     }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public List<CategoryDTO> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<CategoryDTO> categories) {
+        this.categories = categories;
+    }
+
 }

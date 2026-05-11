@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.example.demo.dtos.LineDTO;
 
-import com.example.demo.repositories.LineRepository;
+import com.example.demo.services.LineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,16 +16,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class LineController {
 
     @Autowired
-    private LineRepository lineRepository;
+    private LineService lineService;
 
     @GetMapping
     public List<LineDTO> list(){
-        return lineRepository.findAll();
+        return lineService.getAllLines();
     }
 
     @GetMapping("/{id}")
-    public LineDTO listLinesById(@PathVariable Integer id) {
-        return lineRepository.findById(id).get();
+    public LineDTO getLineById(@PathVariable int id) {
+        return lineService.getLineById(id);
     }
 
 }

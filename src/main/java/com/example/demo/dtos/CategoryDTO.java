@@ -1,46 +1,49 @@
 package com.example.demo.dtos;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.Getter;
-import org.springframework.beans.BeanUtils;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
-import javax.persistence.*;
 import java.util.List;
 
-import com.example.demo.models.Category;
-import com.example.demo.models.Line;
-
-@Getter
-@Entity
-@Table(name = "category")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CategoryDTO {
 
-    @Getter //metodo get
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Getter
-    @Column(name = "name")
     private String name;
 
-    @Getter
-    @ManyToOne
-    @JsonBackReference
-    @JoinColumn(name = "id_line")
-    private Line line;
-
-    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
-    @JsonManagedReference
     private List<ModelDTO> models;
 
-    public CategoryDTO(Category category){
-        BeanUtils.copyProperties(category, this);
+    public CategoryDTO(int id, String name, List<ModelDTO> models){
+        this.id= id;
+        this.name = name;
+        this.models = models;
     }
 
     public CategoryDTO(){
 
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public List<ModelDTO> getModels() {
+        return models;
+    }
+
+    public void setModels(List<ModelDTO> models) {
+        this.models = models;
+    }
 }
