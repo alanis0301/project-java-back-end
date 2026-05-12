@@ -1,5 +1,7 @@
-package models;
+package com.example.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -21,10 +23,12 @@ public class Category {
 
     @Getter
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "id_line")
     private Line line;
 
-    @OneToMany(mappedBy = "category", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<Model> models;
 
     public Category() {
