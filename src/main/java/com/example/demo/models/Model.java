@@ -1,9 +1,11 @@
 package com.example.demo.models;
 
+import com.example.demo.dtos.CategoryDTO;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -24,6 +26,11 @@ public class Model {
     @JoinColumn(name = "id_category")
     @JsonBackReference
     private Category category;
+
+    public Model(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public Model() {
 

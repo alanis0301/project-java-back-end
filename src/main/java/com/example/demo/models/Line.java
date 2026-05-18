@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import com.example.demo.dtos.CategoryDTO;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 
@@ -28,6 +29,12 @@ public class Line {
     @Override
     public String toString() {
         return name;
+    }
+
+    public Line(int id, String name, List<Category> categories) {
+        this.id = id;
+        this.name = name;
+        this.categories = categories;
     }
 
     public Line() {
