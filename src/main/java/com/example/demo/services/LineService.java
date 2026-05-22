@@ -38,7 +38,7 @@ public class LineService {
 
     public LineDTO getLineById(int id) {
         Line line = lineRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Linha não encontrada com ID: " + id));
+                .orElseThrow(() -> new EntityNotFoundException("Linha nao encontrada com ID: " + id));
 
         List<CategoryDTO> categoriesDTO = line.getCategories().stream()
                 .map(category -> {

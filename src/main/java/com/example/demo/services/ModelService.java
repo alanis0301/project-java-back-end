@@ -25,7 +25,7 @@ public class ModelService {
 
     public ModelDTO getModelById(int id) {
         Model model = modelRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Modelo não encontrado com ID: " + id));
+                .orElseThrow(() -> new EntityNotFoundException("Modelo nao encontrado com ID: " + id));
 
         return new ModelDTO(model.getId(), model.getName());
     }

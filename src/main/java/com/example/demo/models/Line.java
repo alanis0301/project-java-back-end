@@ -1,6 +1,5 @@
 package com.example.demo.models;
 
-import com.example.demo.dtos.CategoryDTO;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 

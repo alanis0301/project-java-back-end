@@ -1,11 +1,9 @@
 package com.example.demo.models;
 
-import com.example.demo.dtos.CategoryDTO;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 
 import javax.persistence.*;
-import java.util.List;
 
 
 @Entity

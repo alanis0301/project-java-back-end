@@ -1,10 +1,9 @@
-package com.example.services;
+package com.example.demo.services;
 
 import com.example.demo.dtos.CategoryDTO;
 import com.example.demo.models.Category;
 import com.example.demo.models.Model;
 import com.example.demo.repositories.CategoryRepository;
-import com.example.demo.services.CategoryService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -73,7 +72,7 @@ class CategoryServiceTest {
         assertNotNull(result);
         assertEquals(id, result.getId());
         assertEquals("Cronos", result.getName());
-        verify(categoryRepository).findById(1);
+        verify(categoryRepository).findById(id);
     }
 
     @Test
