@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -35,7 +35,7 @@ public class ModelServiceTest {
 
         model1 = new Model(id, "Model1");
 
-        when(modelRepository.findAll()).thenReturn(Arrays.asList(model1)); //Entrega o model1 como lista ao invés de acessar o banco
+        when(modelRepository.findAll()).thenReturn(Arrays.asList(model1)); //Entrega o model1 como lista ao inves de acessar o banco
 
         List<ModelDTO> result = modelService.getAllModels(); // Atribuo valor ao dto para nao mexer na entidade
 
@@ -68,11 +68,11 @@ public class ModelServiceTest {
         when(modelRepository.findById(id)).thenReturn(Optional.empty()); //Vai retornar vazio para testar
 
         EntityNotFoundException exception = assertThrows(EntityNotFoundException.class, () -> {
-            modelService.getModelById(id); // O mockito vai retornar o vazio e causar a exceção
+            modelService.getModelById(id); // O mockito vai retornar o vazio e causar a excecao
         });
 
-        assertEquals("Modelo nao encontrado com ID: " + id, exception.getMessage()); //compara as mensagens e confere se o erro que aconteceu é o planejado no ModelService
+        assertEquals("Modelo nao encontrado com ID: " + id, exception.getMessage()); //compara as mensagens e confere se o erro que aconteceu eh o planejado no ModelService
 
-        verify(modelRepository).findById(id); // verifica se o método foi chamado exatamente o id criado (1)
+        verify(modelRepository).findById(id); // verifica se o metodo foi chamado exatamente o id criado (1)
     }
 }
