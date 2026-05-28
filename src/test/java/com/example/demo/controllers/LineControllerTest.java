@@ -3,7 +3,6 @@ package com.example.demo.controllers;
 import com.example.demo.dtos.CategoryDTO;
 import com.example.demo.dtos.LineDTO;
 import com.example.demo.dtos.ModelDTO;
-import com.example.demo.services.CategoryService;
 import com.example.demo.services.LineService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
