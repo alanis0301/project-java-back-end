@@ -1,0 +1,14 @@
+variables: 
+  MAVEN_OPTS: "-Dmaven.repo.local=C:\\maven_cache\\repository"
+
+default:
+  tags:
+    - test-runner
+
+package-backend:
+  script:
+    - mvn clean install
+  artifacts:
+    expire_in: 2 hour
+    paths: 
+      - target/*.jar

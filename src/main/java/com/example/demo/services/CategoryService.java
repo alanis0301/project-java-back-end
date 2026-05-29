@@ -32,7 +32,7 @@ public class CategoryService {
 
     public CategoryDTO getCategoryById(int id) {
         Category category = categoryRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Categoria não encontrada com ID: " + id));
+                .orElseThrow(() -> new EntityNotFoundException("Categoria nao encontrada com ID: " + id));
 
         List<ModelDTO> modelsDTO = category.getModels().stream()
                 .map(models -> new ModelDTO(models.getId(), models.getName()))
