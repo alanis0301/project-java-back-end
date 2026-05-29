@@ -30,6 +30,12 @@ public class Line {
         return name;
     }
 
+    public Line(int id, String name, List<Category> categories) {
+        this.id = id;
+        this.name = name;
+        this.categories = categories;
+    }
+
     public Line() {
 
     }

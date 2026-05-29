@@ -25,6 +25,11 @@ public class Model {
     @JsonBackReference
     private Category category;
 
+    public Model(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Model() {
 
     }
